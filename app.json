@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/home/home"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#E60027",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "云音乐",
+    "navigationStyle": "default",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light"
+  },
+  "sitemapLocation": "sitemap18.json"
+}
