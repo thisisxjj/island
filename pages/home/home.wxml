@@ -1,0 +1,8 @@
+<view class="container">
+  <block wx:for="{{songlist}}" wx:key="index">
+    <v-preview 
+      src="{{songlist[index].playlist.coverImgUrl}}" 
+      songlist="{{songlist[index].topThree}}">
+    </v-preview>
+  </block>
+</view>

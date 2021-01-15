@@ -2,6 +2,7 @@ import HTTP from '../api/http'
 
 class SonglistModel extends HTTP {
   url = 'playlist/detail'
+  //飙升榜
   getSoaringList() {
     return this.request({
       url: this.url,
@@ -10,7 +11,7 @@ class SonglistModel extends HTTP {
       }
     })
   }
-
+  //新歌榜
   getNewSongList() {
     return this.request({
       url: this.url,
@@ -19,7 +20,7 @@ class SonglistModel extends HTTP {
       }
     })
   }
-
+  //原创榜
   getOriginalList() {
     return this.request({
       url: this.url,
@@ -28,7 +29,7 @@ class SonglistModel extends HTTP {
       }
     })
   }
-
+  //热歌榜
   getHotSongList() {
     return this.request({
       url: this.url,
