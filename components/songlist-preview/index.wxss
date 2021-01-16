@@ -6,11 +6,21 @@
   align-items: center;
   padding: 20rpx 40rpx;
 }
-
+.left-container {
+  position: relative;
+}
 .image {
   width: 200rpx;
   height: 200rpx;
   border-radius: 12rpx;
+}
+.image-text {
+  position: absolute;
+  bottom: 18rpx;
+  left: 10rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+  color: white;
 }
 
 .right-container {
@@ -19,12 +29,16 @@
   height: 100%;
   margin-left: 20rpx;
   justify-content: space-around;
-  margin-top: -20rpx;
+  margin-top: -30rpx;
 }
 
 .text {
   font-weight: 200;
+  width: 400rpx;
+  overflow: hidden;
   font-size: 24rpx;
   line-height: 24rpx;
+  white-space: nowrap; 
+  text-overflow:ellipsis;
 }
 

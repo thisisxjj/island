@@ -1,10 +1,12 @@
-<wxs src="../../utils/util.wxs" module="tools"></wxs>
 <view class="container">
-  <image class="image" src="{{src}}" />
+  <view class="left-container">
+    <image class="image" src="{{src}}" />
+    <text class="image-text">{{text}}</text>
+  </view>
   <view class="right-container">
     <block wx:for="{{songlist}}" wx:key="index">
       <text class="text">
-        {{index + 1}}.{{item.name}} - {{tools.splice(item.ar)}}
+        {{index + 1}}.{{item.first}} - {{item.second}}
       </text>
     </block>
   </view>

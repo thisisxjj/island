@@ -11,6 +11,10 @@ Component({
     songlist: {
       type: Array,
       value: []
+    },
+    text: {
+      type: String,
+      value: ''
     }
   },
 
