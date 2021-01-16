@@ -1,2 +1,31 @@
-<!--components/songlist-header/index.wxml-->
-<text>components/songlist-header/index.wxml</text>
+<wxs src="../../utils/util.wxs" module="tools"></wxs>
+<view class="container">
+  <view class="top-container">
+    <view class="image-container">
+      <image class="image" src="{{coverImgUrl}}" />
+      <view class="text-container">
+        <image wx:if="{{!loading}}" src="./icons/play.png" class="icon" />
+        <text class="num">{{tools.format(playCount)}}</text>
+      </view>
+    </view>
+    <view class="summary-container">
+      <text class="summary-title">{{name}}</text>
+      <view class="summary-creator">
+        <image class="creator-icon" src="{{creator.avatarUrl}}" />
+        <text class="creator-name">{{creator.nickname}}</text>
+      </view>
+      <view class="description-container">
+        <view class="summary-description">
+          {{text}}
+          <image wx:if="{{!tools.isMore(text) && !loading}}" class="summary-more2" src="icons/more.png"/>
+        </view>
+        <image wx:if="{{tools.isMore(text) && !loading}}" class="summary-more1" src="icons/more.png"/>
+      </view>
+    </view>
+  </view>
+  <view class="bottom-container">
+    <button class="btn" type="primary" disabled="{{disabled}}" bindtap="onTap">
+      分享给微信好友
+    </button>
+  </view>
+</view>

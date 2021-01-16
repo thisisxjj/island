@@ -19,7 +19,24 @@ var splice = function(arr) {
   }
   return temp
 }
+var format = function(num) {
+  if(!num) {
+    return
+  }
+  return (Math.floor(num / 10000000) / 10) + '亿'
+}
+var isMore = function(str) {
+  if(!str) {
+    return
+  }
+  if(str.length > 36) {
+    return true
+  } 
+  return false
+}
 module.exports = {
   filter: filter,
-  splice: splice
+  splice: splice,
+  format: format,
+  isMore: isMore
 }

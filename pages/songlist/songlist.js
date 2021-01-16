@@ -1,5 +1,7 @@
 // pages/songlist/songlist.js
 import deviceUtil from "../../components/utils/device-util"
+import SonglistModel from "../../models/songlist"
+const songlistModel = new SonglistModel()
 Page({
 
   /**
@@ -8,17 +10,39 @@ Page({
   data: {
     title: '歌单',
     capsuleBarHeight: deviceUtil.getNavigationBarHeight() + 20,
-    bgColor: 'rgba(255,255,255,0)'
+    bgColor: 'rgba(0,0,0,0)',
+    playlist: null,
+    bC: 'red',
+    loading: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('capsuleBarHeight', this.data.capsuleBarHeight)
-    console.log(wx.getSystemInfoSync())
+    console.log(options)
+    this._showLoading()
+    songlistModel.getSonglistById(options.tid)
+      .then(res => {
+        console.log(res)
+        this.setData({
+          playlist: res.playlist
+        })
+        this._hideLoading()
+      }, err => {
+        this._hideLoading()
+      })
   },
-
+  _showLoading() {
+    this.setData({
+      loading: true
+    })
+  },
+  _hideLoading() {
+    this.setData({
+      loading: false
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

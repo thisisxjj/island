@@ -1,14 +1,40 @@
 /* pages/songlist/songlist.wxss */
-.container{
+.container {
+  width:100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.navbar-container{
   width:100%;
 }
 
 .navigation-bar-image{
-  width:100%;
   position:fixed;
   top:0;
   left:0;
+  width: 100%;
 }
 .content-container {
   margin-top: 20rpx;
+}
+
+.center-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.bgImage{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  z-index: -1;
 }

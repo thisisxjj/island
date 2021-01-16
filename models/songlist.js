@@ -38,6 +38,15 @@ class SonglistModel extends HTTP {
       }
     })
   }
+
+  getSonglistById(id) {
+    return this.request({
+      url: this.url,
+      data: {
+        id
+      }
+    })
+  }
 }
 
 export default SonglistModel
