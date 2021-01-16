@@ -1,4 +1,0 @@
-<!--components/header/index.wxml-->
-<view class="container">
-  <text>{{title}}</text>
-</view>

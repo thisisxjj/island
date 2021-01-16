@@ -9,8 +9,10 @@ Page({
    */
   data: {
     songToplist: [],
-    artisToplist: null,
-    rewardToplist: null
+    artistToplist: null,
+    rewardToplist: null,
+    title: '云音乐',
+    bgColor: 'rgba(255,255,255,0)'
   },
 
   /**
@@ -19,12 +21,17 @@ Page({
   onLoad: function (options) {
     toplistDetailModel.getToplistDetail()
       .then(res => {
+        console.log(res)
         this.setData({
           songToplist: res.list,
-          artisToplist: res.artisToplist,
+          artistToplist: res.artistToplist,
           rewardToplist: res.rewardToplist
         })
       })
+  },
+  //导航到歌单页面
+  onNavigate(event) {
+    console.log('home:', event)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -4,17 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    src: {
-      type: String,
-      value: ''
-    },
-    songlist: {
-      type: Array,
-      value: []
-    },
-    text: {
-      type: String,
-      value: ''
+    toplistPre: {
+      type: Object,
+      value: null
     }
   },
 
@@ -28,6 +20,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event) {
+      // console.log('event', event)
+      this.triggerEvent('toplisttap', {
+        tid: this.properties.toplistPre.id
+      })
+    }
   }
 })

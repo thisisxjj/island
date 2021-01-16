@@ -1,10 +1,10 @@
-<view class="container">
+<view bind:tap="onTap" class="container">
   <view class="left-container">
-    <image class="image" src="{{src}}" />
-    <text class="image-text">{{text}}</text>
+    <image class="image" src="{{toplistPre.coverImgUrl}}" />
+    <text class="image-text">{{toplistPre.updateFrequency}}</text>
   </view>
   <view class="right-container">
-    <block wx:for="{{songlist}}" wx:key="index">
+    <block wx:for="{{toplistPre.tracks}}" wx:key="index">
       <text class="text">
         {{index + 1}}.{{item.first}} - {{item.second}}
       </text>

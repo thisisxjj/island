@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "v-header": "/components/header/index",
-    "v-preview": "/components/songlist-preview/index"
+    "v-preview": "/components/songlist-preview/index",
+    "v-capsule": "/miniprogram_npm/lin-ui/capsule-bar/index"
   }
 }

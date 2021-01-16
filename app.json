@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/home/home"
+    "pages/home/home",
+    "pages/songlist/songlist"
   ],
   "window": {
     "navigationBarBackgroundColor": "#E60027",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "云音乐",
-    "navigationStyle": "default",
+    "navigationStyle": "custom",
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "light"
   },

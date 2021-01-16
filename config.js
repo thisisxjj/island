@@ -1,4 +1,4 @@
 export const config = {
-  devUrl: 'http://localhost:3000/',
+  devUrl: 'http://192.168.1.2:3000/',
   proUrl: ''
 }

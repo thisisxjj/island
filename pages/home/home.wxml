@@ -1,10 +1,15 @@
 <wxs src="../../utils/util.wxs" module="tools"></wxs>
 <view class="container">
-  <block wx:for="{{tools.filter(songToplist, 4)}}" wx:key="index">
-    <v-preview 
-      src="{{item.coverImgUrl}}" 
-      songlist="{{item.tracks}}"
-      text="{{item.updateFrequency}}">
-    </v-preview>
-  </block>
+  <v-capsule 
+    bg-color="{{bgColor}}"
+    hidden-capsule="{{true}}" 
+    title="{{title}}"></v-capsule>
+  <view class="container">
+    <block wx:for="{{tools.filter(songToplist, 4)}}" wx:key="index">
+      <v-preview 
+        toplistPre="{{item}}"
+        bind:toplisttap="onNavigate">
+      </v-preview>
+    </block>
+  </view>
 </view>
