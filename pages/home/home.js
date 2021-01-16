@@ -11,7 +11,7 @@ Page({
     songToplist: [],
     artistToplist: null,
     rewardToplist: null,
-    title: '云音乐',
+    title: '网易云音乐',
     bgColor: 'rgba(255,255,255,0)'
   },
 
@@ -31,7 +31,11 @@ Page({
   },
   //导航到歌单页面
   onNavigate(event) {
-    console.log('home:', event)
+    // console.log('home:', event)
+    const tid = event.detail.tid
+    wx.navigateTo({
+      url: `/pages/songlist/songlist?tid=${tid}`
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

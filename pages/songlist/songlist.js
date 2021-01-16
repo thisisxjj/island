@@ -1,18 +1,22 @@
 // pages/songlist/songlist.js
+import deviceUtil from "../../components/utils/device-util"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    title: '歌单',
+    capsuleBarHeight: deviceUtil.getNavigationBarHeight() + 20,
+    bgColor: 'rgba(255,255,255,0)'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('capsuleBarHeight', this.data.capsuleBarHeight)
+    console.log(wx.getSystemInfoSync())
   },
 
   /**

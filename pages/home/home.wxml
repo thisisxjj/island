@@ -2,9 +2,10 @@
 <view class="container">
   <v-capsule 
     bg-color="{{bgColor}}"
+    l-title-class="title-class"
     hidden-capsule="{{true}}" 
     title="{{title}}"></v-capsule>
-  <view class="container">
+  <view class="toplist-container">
     <block wx:for="{{tools.filter(songToplist, 4)}}" wx:key="index">
       <v-preview 
         toplistPre="{{item}}"

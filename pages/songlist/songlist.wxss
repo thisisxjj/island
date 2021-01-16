@@ -1,1 +1,14 @@
 /* pages/songlist/songlist.wxss */
+.container{
+  width:100%;
+}
+
+.navigation-bar-image{
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+}
+.content-container {
+  margin-top: 20rpx;
+}

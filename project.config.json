@@ -46,18 +46,24 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
-      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/songlist/songlist",
+          "pathName": "pages/songlist/songlist",
+          "query": "tid=19723756",
+          "scene": null
+        }
+      ]
     }
   }
 }

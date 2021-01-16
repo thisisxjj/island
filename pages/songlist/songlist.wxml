@@ -1,2 +1,21 @@
 <!--pages/songlist/songlist.wxml-->
-<text>pages/songlist/songlist.wxml</text>
+<v-capsule 
+  bg-color="{{bgColor}}"
+  capsule-color="white"
+  title-color="white"
+  title="{{title}}"
+  home-page='/pages/home/home'>
+  <view class="container">
+  <!-- CapsuleBar 背景图片 -->
+    <image
+      style="height:{{capsuleBarHeight}}rpx;"
+      class="navigation-bar-image"
+      src="https://img.juzibiji.top/20200523214628.png">
+    </image>
+  </view>
+  <view class="content-container">
+    这是页面内容
+  </view>
+</v-capsule>
+  
+

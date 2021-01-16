@@ -5,3 +5,7 @@
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
+.title-class {
+  font-weight: 400 !important;
+}
