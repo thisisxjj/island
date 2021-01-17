@@ -10,21 +10,20 @@ Page({
   data: {
     title: '歌单',
     capsuleBarHeight: deviceUtil.getNavigationBarHeight() + 20,
-    bgColor: 'rgba(0,0,0,0)',
+    bgColor: 'transparent',
     playlist: null,
     bC: 'red',
-    loading: false
+    loading: false,
+    onceNum: 15
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     this._showLoading()
     songlistModel.getSonglistById(options.tid)
       .then(res => {
-        console.log(res)
         this.setData({
           playlist: res.playlist
         })
@@ -42,6 +41,12 @@ Page({
     this.setData({
       loading: false
     })
+  },
+  onPlayAll(event) {
+    console.log(event)
+  },
+  onPlay(event) {
+    console.log('play:', event)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -82,7 +87,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let onceNum = this.data.onceNum + 15
+    let length = this.data.playlist.tracks.length
+    onceNum = onceNum > length ? length : onceNum
+    this.setData({
+      onceNum
+    })
   },
 
   /**

@@ -3,7 +3,7 @@
     "v-capsule": "/components/capsule-bar/index",
     "v-header": "/components/songlist-header/index",
     "v-loading": "/components/loading/index",
-    "v-mask": "/components/mask/index"
+    "v-item": "/components/songlist-item/index"
   },
   "enablePullDownRefresh": false
 }

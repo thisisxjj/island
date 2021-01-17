@@ -1,0 +1,12 @@
+<wxs src="../../utils/util.wxs" module="tools"></wxs>
+<view bind:tap="onTap" class="container">
+  <slot name="index"></slot>
+  <view class="content-container">
+    <text class="song-title">{{song.name}}</text>
+    <view class="songer-container">
+      <text class="songer-name">{{tools.splice(song.ar)}} - </text>
+      <text class="songer-al">{{song.al.name}}</text>
+    </view>
+  </view>
+  <image class="play-icon" src="./icons/play.png" />
+</view>

@@ -24,8 +24,9 @@
     </view>
   </view>
   <view class="bottom-container">
-    <button class="btn" type="primary" disabled="{{disabled}}" bindtap="onTap">
-      分享给微信好友
-    </button>
+    <v-button openType="share" class="button">
+      <image slot="img" class="share-img" src="./icons/share.png"/>
+      <text slot="text" class="text">分享给微信好友</text>
+    </v-button>
   </view>
 </view>

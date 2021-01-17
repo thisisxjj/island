@@ -110,10 +110,17 @@
   margin-top: -40rpx;
 }
 
-.btn {
+.button {
   height: 60rpx;
-  width: 300rpx;
-  border-radius: 30rpx;
-  font-size: 24rpx;
-  line-height: 60rpx;
+  width: 320rpx;
+}
+
+.share-img {
+  height: 36rpx;
+  width: 36rpx;
+}
+.text {
+  color: white;
+  font-size: 28rpx;
+  margin-left: 10rpx;
 }

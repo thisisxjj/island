@@ -1,0 +1,12 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  border-radius: 40rpx;
+  /* opacity: 0.3; */
+  background-color: rgba(0,0,0,.1);
+  border: none;
+  /* opacity: 0.3; */
+}

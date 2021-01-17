@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 700rpx;
+  padding: 24rpx;
+  justify-content: space-between;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  width: 550rpx;
+  margin-left: 12rpx;
+}
+.song-title {
+  color: #2c2c2c;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow:ellipsis;
+}
+.songer-container {
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow:ellipsis;
+}
+.songer-name, .songer-al {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #b1b1b1;
+}
+
+.play-icon {
+  width: 66rpx;
+  height: 66rpx;
+}
