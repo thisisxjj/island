@@ -4,6 +4,16 @@
   overflow-y: hidden;
   overflow-x: hidden;
 }
+.navbar-container{
+  width:100%;
+}
+
+.navigation-bar-image{
+  position:fixed;
+  top:0;
+  left:0;
+  width: 100%;
+}
 .content-container {
   margin-top: 20rpx;
   display: flex;

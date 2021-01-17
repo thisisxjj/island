@@ -4,6 +4,10 @@
   <view class="bgImage" wx:if="{{!loading}}"
   style="background:url({{playlist.coverImgUrl}});background-repeat:no-repeat;background-size: 2000rpx 2400rpx;background-position: top center;)"></view>
   <v-capsule bg-color="{{bgColor}}" capsule-color="white" title-color="white" title="{{title}}" home-page='/pages/home/home'>
+    <view class="navbar-container">
+      <!-- CapsuleBar 背景图片 -->
+      <image style="height:{{capsuleBarHeight}}rpx;" class="navigation-bar-image" src="{{playlist.coverImgUrl}}" mode="bottom"></image>
+    </view>
   </v-capsule>
   <view class="content-container" wx:if="{{!loading}}">
     <v-header 
