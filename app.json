@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/songlist/songlist"
+    "pages/songlist/songlist",
+    "pages/summary/summary"
   ],
   "window": {
     "navigationBarBackgroundColor": "#E60027",

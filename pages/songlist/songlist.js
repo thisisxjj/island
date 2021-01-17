@@ -48,6 +48,18 @@ Page({
   onPlay(event) {
     console.log('play:', event)
   },
+  onShowSummary() {
+    wx.navigateTo({
+      url: '/pages/summary/summary',
+      success: (res) => {
+        res.eventChannel.emit('transferData', { 
+          playlist: this.data.playlist,
+          title: this.data.title,
+          bgColor: this.data.bgColor
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -14,7 +14,7 @@
         <image class="creator-icon" src="{{creator.avatarUrl}}" />
         <text class="creator-name">{{creator.nickname}}</text>
       </view>
-      <view class="description-container">
+      <view class="description-container" bind:tap="onTap">
         <view class="summary-description">
           {{text}}
           <image wx:if="{{!tools.isMore(text) && !loading}}" class="summary-more2" src="icons/more.png"/>

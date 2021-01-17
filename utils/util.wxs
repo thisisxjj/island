@@ -34,9 +34,23 @@ var isMore = function(str) {
   } 
   return false
 }
+var spliceTags = function(arr) {
+  if(!arr) {
+    return
+  }
+  var temp = ''
+  for(var i = 0; i < arr.length; i++) {
+    temp += (i < arr.length - 1) ? (arr[i] + '、') : arr[i] 
+  }
+  if(!temp) {
+    temp = '无'
+  }
+  return temp
+}
 module.exports = {
   filter: filter,
   splice: splice,
   format: format,
-  isMore: isMore
+  isMore: isMore,
+  spliceTags: spliceTags
 }
