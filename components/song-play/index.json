@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "v-capsule": "/components/capsule-bar/index"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "v-play": "/components/song-play/index"
+  },
+  "enablePullDownRefresh": false
+}

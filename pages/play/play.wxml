@@ -1,0 +1,1 @@
+<v-play class="paly" song="{{song}}" playlist="{{playlist}}"></v-play>

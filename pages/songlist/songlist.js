@@ -46,7 +46,20 @@ Page({
     console.log(event)
   },
   onPlay(event) {
-    console.log('play:', event)
+    // console.log('play:', event)
+    const song = event.detail.song
+    if(!song) {
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/play/play',
+      success: (res) => {
+        res.eventChannel.emit('transferData', { 
+          song: song,
+          playlist: this.data.playlist
+        })
+      }
+    })
   },
   onShowSummary() {
     wx.navigateTo({

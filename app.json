@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/songlist/songlist",
-    "pages/summary/summary"
+    "pages/summary/summary",
+    "pages/play/play"
   ],
   "window": {
     "navigationBarBackgroundColor": "#E60027",
@@ -12,5 +13,6 @@
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "light"
   },
+  "requiredBackgroundModes": ["audio", "location"],
   "sitemapLocation": "sitemap18.json"
 }

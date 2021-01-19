@@ -1,0 +1,5 @@
+/* pages/play/play.wxss */
+.paly {
+  width: 100%;
+  height: 100%;
+}

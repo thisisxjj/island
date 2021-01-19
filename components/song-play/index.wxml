@@ -1,0 +1,18 @@
+<wxs src="../../utils/util.wxs" module="tools"></wxs>
+<view class="container bgImage" style="background:url({{song.al.picUrl}});background-repeat:no-repeat;background-size: 1000000rpx 1000000rpx;background-position: center;)">
+  <v-capsule 
+  bg-color="{{bgColor}}" 
+  capsule-color="white" 
+  title-color="white" 
+  title="{{song.name}}" 
+  l-title-class="song-title"
+  home-page='/pages/home/home'>
+  </v-capsule>
+  <view class="content-container">
+    <view class="album-container">
+      <image class="album-bg" src="./icons/al-bg.png" />
+      <image class="album-img" src="{{song.al.picUrl}}" />
+      <image wx:if="{{showPlayIcon}}" class="play-icon" bind:tap="onPlay" src="{{playing ? pauseSrc : playSrc}}" />
+    </view>
+  </view>
+</view>

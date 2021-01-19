@@ -1,9 +1,28 @@
 import HTTP from '../api/http'
 
 class SongDetailModel extends HTTP {
-  url = 'song/detail'
   //根据歌曲id数组获取歌曲详细信息
-  getSonglistDetail(ids) {
+  getSongDetail(ids) {
+    let idStr = this._arrayToString(ids)
+    return this.request({
+      url: 'song/detail',
+      data: {
+        ids: idStr ? idStr : ids
+      }
+    })
+  }
+  //根据歌曲id获取歌曲url
+  getSongPlayUrl(ids) {
+    let idStr = this._arrayToString(ids)
+    return this.request({
+      url: 'song/url',
+      data: {
+        id: idStr ? idStr : ids
+      }
+    })
+  }
+
+  _arrayToString(ids) {
     let idStr = ''
     if(Array.isArray(ids)) {
       ids.forEach((item, index) => {
@@ -14,12 +33,7 @@ class SongDetailModel extends HTTP {
         }
       })
     }
-    return this.request({
-      url: this.url,
-      data: {
-        ids: idStr ? idStr : ids
-      }
-    })
+    return idStr
   }
 }
 
