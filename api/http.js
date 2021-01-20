@@ -18,15 +18,7 @@ class HTTP {
           contentType: 'application/json'
         },
         success: (res) => {
-          let statusCode = res.statusCode.toString()
-          if (statusCode.startsWith('2')) {
-            resolve(res.data)
-          } else {
-              reject()
-              let error_code = res.data.code
-              console.log(error_code, '错误码')
-              this._show_error(error_code)
-          }
+          resolve(res.data)
         },
         fail: (err) => {
           reject()

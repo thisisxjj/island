@@ -39,8 +39,7 @@ Component({
         this.setData({
           playing: true
         })
-        bam.src = app.playingSongUrl
-        bam.title = this.properties.song.name
+        bam.play()
       } else {
         this.setData({
           playing: false
@@ -89,32 +88,16 @@ Component({
         if(this.properties.song.id === trackArray[i].id) {
           if(i >= 1) {
             //播放上一首歌曲
-            songDetailModel.getSongPlayUrl(trackArray[i - 1].id)
-              .then(res => {
-                if(!res.data[0].url) {
-                  wx.showModal({
-                    content: '该歌曲请前往云音乐APP播放',
-                    confirmText: '我知道了',
-                    showCancel: false
-                  })
-                  this.setData({
-                    showPlayIcon: false
-                  })
-                  app.playingSongId = 0
-                  return
+            this.checkAndRequestSong(trackArray[i - 1], true)
+              .then((res) => {
+                if(res) {
+                  this.playPrev()
                 }
-                bam.src = res.data[0].url
-                bam.title = trackArray[i - 1].name
-                bam.singer = this.splice(trackArray[i - 1].ar) + ' - ' + trackArray[i - 1].al.name
-                bam.coverImgUrl = trackArray[i - 1].al.picUrl
-                // 更新歌曲对象数据
-                this.setData({
-                  song: trackArray[i - 1],
-                  playing: true
-                })
-                app.playingSongId = trackArray[i - 1].id
               })
+          } else {
+            this.checkAndRequestSong(trackArray[trackArray.length - 1])
           }
+          break
         }
       }
     },
@@ -127,36 +110,20 @@ Component({
         if(this.properties.song.id === trackArray[i].id) {
           if(i < trackArray.length - 1) {
             //播放下一首歌曲
-            songDetailModel.getSongPlayUrl(trackArray[i+1].id)
-              .then(res => {
-                if(!res.data[0].url) {
-                  wx.showModal({
-                    content: '该歌曲请前往云音乐APP播放',
-                    confirmText: '我知道了',
-                    showCancel: false
-                  })
-                  this.setData({
-                    showPlayIcon: false
-                  })
-                  app.playingSongId = 0
-                  return
+            this.checkAndRequestSong(trackArray[i + 1], true)
+              .then((res) => {
+                if(res) {
+                  this.playNext()
                 }
-                bam.src = res.data[0].url
-                bam.title = trackArray[i + 1].name
-                bam.singer = this.splice(trackArray[i + 1].ar) + ' - ' + trackArray[i + 1].al.name 
-                bam.coverImgUrl = trackArray[i + 1].al.picUrl
-                // 更新歌曲对象数据
-                this.setData({
-                  song: trackArray[i + 1],
-                  playing: true
-                })
-                app.playingSongId = trackArray[i + 1].id
               })
+          } else {
+            this.checkAndRequestSong(trackArray[0])
           }
+          break
         }
       }
     },
-    splice(arr) {
+    _splice(arr) {
       if(!arr) {
         return
       }
@@ -165,6 +132,47 @@ Component({
         temp += (i < arr.length - 1) ? (arr[i].name + '/') : arr[i].name 
       }
       return temp
+    },
+    showDontPlayModal() {
+      wx.showModal({
+        content: '该歌曲请前往云音乐APP播放',
+        confirmText: '我知道了',
+        showCancel: false
+      })
+      this.setData({
+        showPlayIcon: false
+      })
+      app.playingSongId = 0
+    },
+    checkAndRequestSong(song, isNextOrPrev) {
+      songDetailModel.checkSongUrl(song.id).then(res => {
+        if(res.success) {
+          return songDetailModel.getSongPlayUrl(song.id)
+        } else {
+          if(!isNextOrPrev) {
+            bam.stop()
+            return this.showDontPlayModal()
+          } else {
+            return new Promise(resolve => {
+              resolve(true)
+            })
+          }
+        }
+      }).then(res => {
+        if(!res) {
+          return
+        }
+        bam.title = song.name
+        bam.src = res.data[0].url
+        bam.singer = this._splice(song.ar) + ' - ' + song.al.name 
+        bam.coverImgUrl = song.al.picUrl
+        //设置全局的播放歌曲的songid
+        app.playingSongId = song.id
+        this.setData({
+          song,
+          playing: true
+        })
+      })
     }
   },
   observers: {
@@ -175,32 +183,7 @@ Component({
           bam.paused && bam.play()
           return
         }
-        songDetailModel.getSongPlayUrl(song.id)
-          .then(res => {
-            // console.log(res)
-            if(!res.data[0].url) {
-              wx.showModal({
-                content: '该歌曲请前往云音乐APP播放',
-                confirmText: '我知道了',
-                showCancel: false
-              })
-              this.setData({
-                showPlayIcon: false
-              })
-              app.playingSongId = 0
-              return
-            }
-            bam.title = this.properties.song.name
-            bam.src = res.data[0].url
-            bam.singer = this.splice(song.ar) + ' - ' + song.al.name 
-            bam.coverImgUrl = song.al.picUrl
-            this.setData({
-              src: res.data[0].url,
-              playing: true
-            })
-            //设置全局的播放歌曲的songid
-            app.playingSongId = this.properties.song.id
-          })
+        this.checkAndRequestSong(song)
       }
     }
   }

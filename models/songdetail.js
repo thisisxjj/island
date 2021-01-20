@@ -22,6 +22,16 @@ class SongDetailModel extends HTTP {
     })
   }
 
+  //根据歌曲id判断音乐是否可用
+  checkSongUrl(id) {
+    return this.request({
+      url: 'check/music',
+      data: {
+        id
+      }
+    })
+  }
+
   _arrayToString(ids) {
     let idStr = ''
     if(Array.isArray(ids)) {
