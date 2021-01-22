@@ -10,8 +10,8 @@
   </v-capsule>
   <view class="content-container">
     <view class="album-container">
-      <image class="album-bg" src="./icons/al-bg.png" />
-      <image class="album-img" src="{{song.al.picUrl}}" />
+      <image class="album-bg {{playing ? 'rotation' : ''}}" src="./icons/al-bg.png" />
+      <image class="album-img  {{playing ? 'rotation' : ''}}" src="{{song.al.picUrl}}" />
       <image wx:if="{{showPlayIcon}}" class="play-icon" bind:tap="onPlay" src="{{playing ? pauseSrc : playSrc}}" />
     </view>
   </view>

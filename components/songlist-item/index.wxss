@@ -10,7 +10,7 @@
 .content-container {
   display: flex;
   flex-direction: column;
-  width: 550rpx;
+  width: 500rpx;
   margin-left: 12rpx;
 }
 .song-title {

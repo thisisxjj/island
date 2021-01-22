@@ -58,3 +58,21 @@
   width: 120rpx;
   height: 120rpx;
 }
+
+@-webkit-keyframes rotation {
+  0%{-webkit-transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+
+@keyframes rotation{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
+
+.rotation {
+	-webkit-transform: rotate(360deg);
+	animation: rotation 16s linear infinite;
+	-moz-animation: rotation 16s linear infinite;
+	-webkit-animation: rotation 16s linear infinite;
+	-o-animation: rotation 16s linear infinite;
+}
