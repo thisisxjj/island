@@ -32,6 +32,16 @@ class SongDetailModel extends HTTP {
     })
   }
 
+  //根据歌曲id获取歌曲的歌词
+  getSongLyric(id) {
+    return this.request({
+      url: 'lyric',
+      data: {
+        id
+      }
+    })
+  }
+
   _arrayToString(ids) {
     let idStr = ''
     if(Array.isArray(ids)) {

@@ -24,7 +24,10 @@ Component({
     showPlayIcon: true,
     prevSong: null,
     nextSong: null,
-    checkedSongs: []
+    checkedSongs: [],
+    songLyric: '',
+    currentTime: 0,
+    loading: false
   },
   attached() {
     this.setData({
@@ -73,6 +76,7 @@ Component({
       app.playingSongId = 0
     },
     checkAndRequestSong(song) {
+      this._showLoading()
       this.checkSong(song).then(res => {
         if(res.success) {
             return songDetailModel.getSongPlayUrl(song.id)
@@ -85,6 +89,18 @@ Component({
           return
         }
         this.setBackgroundAudioManager(song, res)
+        return songDetailModel.getSongLyric(song.id)
+      }).then(res => {
+        if(!res.lrc.lyric) {
+          return
+        }
+        this.setData({
+          songLyric: res.lrc.lyric
+        })
+        this._hideLoading()
+      }, () => {
+        songDetailModel._show_error()
+        this._hideLoading()
       })
     },
     setBackgroundAudioManager(song, res) {
@@ -191,6 +207,21 @@ Component({
       })
       bam.onPrev(() => {
         this.playPrev()
+      })
+      bam.onTimeUpdate((e) => {
+        this.setData({
+          currentTime: bam.currentTime
+        })
+      })
+    },
+    _showLoading() {
+      this.setData({
+        loading: true
+      })
+    },
+    _hideLoading() {
+      this.setData({
+        loading: false
       })
     }
   },

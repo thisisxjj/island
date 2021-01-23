@@ -1,0 +1,8 @@
+<!--components/song-lyric/index.wxml-->
+<view class="container">
+  <view class="song-lyric" style="{{lyricMove}}">
+      <block wx:for="{{lyricAndTimeArr}}" wx:key="index">
+        <view class="lyric-row {{currentRow === index ? 'hight-color': ''}}">{{item.text}}</view>
+      </block>
+  </view>
+</view>

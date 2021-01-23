@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "v-capsule": "/components/capsule-bar/index"
+    "v-capsule": "/components/capsule-bar/index",
+    "v-lyric": "/components/song-lyric/index",
+    "v-loading": "/components/loading/index"
   }
 }

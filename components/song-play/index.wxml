@@ -8,11 +8,14 @@
   l-title-class="song-title"
   home-page='/pages/home/home'>
   </v-capsule>
-  <view class="content-container">
+  <view class="content-container" wx:if="{{!loading}}">
     <view class="album-container">
       <image class="album-bg {{playing ? 'rotation' : ''}}" src="./icons/al-bg.png" />
       <image class="album-img  {{playing ? 'rotation' : ''}}" src="{{song.al.picUrl}}" />
       <image wx:if="{{showPlayIcon}}" class="play-icon" bind:tap="onPlay" src="{{playing ? pauseSrc : playSrc}}" />
     </view>
+    <v-lyric class="lyric" lyric="{{songLyric}}" currentTime="{{currentTime}}"></v-lyric>
   </view>
+  <v-loading show="{{loading}}" type="flash" class="center-loading"></v-loading>
 </view>
+

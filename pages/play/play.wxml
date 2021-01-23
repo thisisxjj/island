@@ -1,1 +1,3 @@
-<v-play class="paly" song="{{song}}" playlist="{{playlist}}"></v-play>
+<view class="container">
+  <v-play class="paly" song="{{song}}" playlist="{{playlist}}"></v-play>
+</view>

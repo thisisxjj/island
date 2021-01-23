@@ -1,0 +1,28 @@
+/* components/song-lyric/index.wxss */
+.container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 202rpx;
+}
+
+.song-lyric {
+  position: absolute;
+  top: 0;
+}
+
+.lyric-row {
+  text-align: center;
+  padding: 10rpx;
+  color: #999999;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow:ellipsis;
+  width: 650rpx;
+}
+
+.hight-color {
+  color: white;
+}
