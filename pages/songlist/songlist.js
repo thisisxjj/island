@@ -43,11 +43,11 @@ Page({
     })
   },
   onPlayAll(event) {
-    console.log(event)
+    this.onPlay(event, this.data.playlist.tracks[0])
   },
-  onPlay(event) {
+  onPlay(event, playAllSong) {
     // console.log('play:', event)
-    const song = event.detail.song
+    const song = event.detail.song || playAllSong
     if(!song) {
       return
     }
